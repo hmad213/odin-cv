@@ -1,4 +1,5 @@
 import General from "./general";
+import "../styles/Resume.css"
 
 export default function Resume({ name, email, contact, address }){
     return(
