@@ -11,7 +11,6 @@ export default function App() {
     address: "",
   });
   let [activeForm, setActiveForm] = useState("");
-  console.log(activeForm);
 
   return (
     <div className="body">
