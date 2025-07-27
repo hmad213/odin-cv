@@ -1,31 +1,10 @@
-export default function Form({ input, setInput }){
-    function onChange(event){
-        setInput({...input, [event.target.name]: event.target.value})
-    }
+import GeneralForm from "./FormGeneral";
 
-    return(
-        <div>
-            <form>
-                <div>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" name="name" id="name" onChange={onChange}/>
-                </div>
-
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" onChange={onChange}/>
-                </div>
-
-                <div>
-                    <label htmlFor="contact">Contact</label>
-                    <input type="tel" name="contact" id="contact" onChange={onChange}/>
-                </div>
-
-                <div>
-                    <label htmlFor="address">Address</label>
-                    <input type="textarea" name="address" id="address" onChange={onChange}/>
-                </div>
-            </form>
-        </div>
-    )
+export default function Form({ input, setInput, activeForm }) {
+  switch (activeForm) {
+    case "general":
+      return <GeneralForm input={input} setInput={setInput} />;
+    default:
+      return <></>;
+  }
 }
