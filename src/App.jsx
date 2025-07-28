@@ -11,6 +11,7 @@ export default function App() {
     address: "",
     skills: ["Sewing", "Javascript", "Python"],
     jobs: [],
+    education: [],
   });
   let [activeForm, setActiveForm] = useState("");
 

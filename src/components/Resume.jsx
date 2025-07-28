@@ -2,6 +2,7 @@ import General from "./ResumeGeneral";
 import Skills from "./ResumeSkills";
 import "../styles/Resume.css";
 import Job from "./ResumeJob";
+import Education from "./ResumeEducation";
 
 export default function Resume({ input }) {
   return (
@@ -14,6 +15,7 @@ export default function Resume({ input }) {
       />
       <Skills skills={input.skills} />
       <Job jobs={input.jobs} />
+      <Education education={input.education} />
     </div>
   );
 }
