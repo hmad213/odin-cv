@@ -9,7 +9,8 @@ export default function App() {
     contact: "",
     email: "",
     address: "",
-    skills: ["Sewing", "Javascript", "Python"]
+    skills: ["Sewing", "Javascript", "Python"],
+    jobs: [],
   });
   let [activeForm, setActiveForm] = useState("");
 
@@ -17,9 +18,7 @@ export default function App() {
     <div className="body">
       <Sidebar activeForm={activeForm} setActiveForm={setActiveForm}></Sidebar>
       <Form input={input} setInput={setInput} activeForm={activeForm} />
-      <Resume
-        input={input}
-      />
+      <Resume input={input} />
     </div>
   );
 }

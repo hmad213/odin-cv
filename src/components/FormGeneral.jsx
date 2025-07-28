@@ -9,17 +9,35 @@ export default function GeneralForm({ input, setInput }) {
       <form>
         <div>
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" onChange={onChange} value={input["name"]} />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            onChange={onChange}
+            value={input["name"]}
+          />
         </div>
 
         <div>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" onChange={onChange} value={input["email"]}/>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onChange={onChange}
+            value={input["email"]}
+          />
         </div>
 
         <div>
           <label htmlFor="contact">Contact</label>
-          <input type="tel" name="contact" id="contact" onChange={onChange} value={input["contact"]}/>
+          <input
+            type="tel"
+            name="contact"
+            id="contact"
+            onChange={onChange}
+            value={input["contact"]}
+          />
         </div>
 
         <div>

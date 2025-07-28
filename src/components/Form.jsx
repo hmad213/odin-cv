@@ -10,9 +10,9 @@ export default function Form({ input, setInput, activeForm }) {
     case "skills":
       return <SkillsForm input={input} setInput={setInput} />;
     case "job":
-      return <JobForm input={input} setInput={setInput} />
+      return <JobForm input={input} setInput={setInput} />;
     case "education":
-      return <EducationForm input={input} setInput={setInput} />
+      return <EducationForm input={input} setInput={setInput} />;
     default:
       return <></>;
   }

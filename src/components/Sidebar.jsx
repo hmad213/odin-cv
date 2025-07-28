@@ -1,4 +1,4 @@
-import "../styles/Sidebar.css"
+import "../styles/Sidebar.css";
 
 export default function Sidebar({ activeForm, setActiveForm }) {
   function onClick(event) {
