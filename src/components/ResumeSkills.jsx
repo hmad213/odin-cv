@@ -1,4 +1,7 @@
 export default function ResumeSkills({ skills }) {
+  if (skills.length === 0) {
+    return <></>;
+  }
   return (
     <div>
       <h2>Skills</h2>

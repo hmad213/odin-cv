@@ -1,4 +1,7 @@
 export default function ResumeEducation({ education }) {
+  if (education.length === 0) {
+    return <></>;
+  }
   return (
     <div>
       <h2>Education</h2>

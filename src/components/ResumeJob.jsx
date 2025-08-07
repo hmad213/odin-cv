@@ -1,4 +1,7 @@
 export default function ResumeJob({ jobs }) {
+  if (jobs.length === 0) {
+    return <></>;
+  }
   return (
     <div>
       <h2>Jobs</h2>
