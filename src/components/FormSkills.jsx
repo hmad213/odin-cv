@@ -1,89 +1,129 @@
 import { useState } from "react";
+import backImg from "../assets/back.svg";
+import editImg from "../assets/edit.svg";
+import deleteImg from "../assets/delete.svg";
 
 function SkillItem({ name, index, input, setInput, setMode, setEditingIndex }) {
   function onDelete(e) {
-    console.log(e.target.previousSibling.previousSibling);
+    console.log(e.currentTarget.parentNode.parentNode);
     let temp = input.skills.filter(
-      (skill) => skill !== e.target.previousSibling.previousSibling.textContent,
+      (skill) =>
+        skill !== e.currentTarget.parentNode.parentNode.firstChild.textContent,
     );
     setInput({ ...input, skills: temp });
   }
 
   return (
-    <div>
-      <h3>{name}</h3>
-      <button
-        onClick={() => {
-          setMode("edit");
-          setEditingIndex(index);
-        }}
-      >
-        Edit
-      </button>
-      <button onClick={onDelete}>Delete</button>
+    <div className="item">
+      <div>
+        <h3>{name}</h3>
+      </div>
+      <div>
+        <button
+          onClick={() => {
+            setMode("edit");
+            setEditingIndex(index);
+          }}
+        >
+          <img src={editImg} alt="" />
+        </button>
+        <button onClick={onDelete}>
+          <img src={deleteImg} alt="" />
+        </button>
+      </div>
     </div>
   );
 }
 
 function RenderForm({ input, setInput, setMode, setEditingIndex }) {
   return (
-    <div>
-      <h2>Skills</h2>
-      <ul>
-        {input.skills.map((skill, index) => {
-          return (
-            <SkillItem
-              name={skill}
-              index={index}
-              input={input}
-              setInput={setInput}
-              setMode={setMode}
-              setEditingIndex={setEditingIndex}
-            />
-          );
-        })}
-      </ul>
-      <button onClick={() => setMode("add")}>Add Skill</button>
+    <div className="form">
+      <div>
+        <h2>Skills</h2>
+        {input.skills.length === 0 ? (
+          <p>No skills have been added</p>
+        ) : (
+          <ul>
+            {input.skills.map((skill, index) => {
+              return (
+                <SkillItem
+                  name={skill}
+                  index={index}
+                  input={input}
+                  setInput={setInput}
+                  setMode={setMode}
+                  setEditingIndex={setEditingIndex}
+                />
+              );
+            })}
+          </ul>
+        )}
+        <button onClick={() => setMode("add")} className="add">
+          Add Skill
+        </button>
+      </div>
     </div>
   );
 }
 
 function RenderAddSkill({ input, setInput, setMode }) {
-  function onClick(e) {
+  function onSubmit(e) {
+    e.preventDefault();
     let temp = input.skills;
-    temp.push(e.target.previousSibling.value);
+    temp.push(e.target.querySelector("input").value);
     setInput({ ...input, skills: temp });
     setMode("form");
   }
 
   return (
-    <div>
-      <button onClick={() => setMode("form")}>Back</button>
-      <form>
-        <label htmlFor="skill">Name</label>
-        <input type="text" name="skill" id="skill" />
-        <button onClick={onClick}>Submit</button>
-      </form>
+    <div className="form">
+      <div>
+        <button onClick={() => setMode("form")} className="back">
+          <img src={backImg} />
+          <span>Back</span>
+        </button>
+        <form onSubmit={onSubmit}>
+          <div>
+            <label htmlFor="skill">Name</label>
+            <input type="text" name="skill" id="skill" required />
+          </div>
+          <button className="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }
 
 function RenderEditSkill({ input, setInput, setMode, editingIndex }) {
-  function onClick(e) {
+  function onSubmit(e) {
+    e.preventDefault();
     let temp = [...input.skills];
-    temp[editingIndex] = e.target.previousSibling.value;
+    temp[editingIndex] = e.target.querySelector("input").value;
     setInput({ ...input, skills: temp });
     setMode("form");
   }
 
   return (
-    <div>
-      <button onClick={() => setMode("form")}>Back</button>
-      <form>
-        <label htmlFor="skill">Name</label>
-        <input type="text" name="skill" id="skill" />
-        <button onClick={onClick}>Submit</button>
-      </form>
+    <div className="form">
+      <div>
+        <button onClick={() => setMode("form")} className="back">
+          <img src={backImg} />
+          <span>Back</span>
+        </button>
+        <form onSubmit={onSubmit}>
+          <div>
+            <label htmlFor="skill">Name</label>
+            <input
+              type="text"
+              name="skill"
+              id="skill"
+              required
+              defaultValue={input.skills[editingIndex]}
+            />
+          </div>
+          <button className="submit">Submit</button>
+        </form>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,147 @@
+.body .form {
+  max-width: 350px;
+  height: 100vh;
+  align-content: center;
+  background-color: inherit;
+}
+
+.body .form > div {
+  background-color: white;
+  padding: 20px;
+  border-radius: 0px 16px 16px 0px;
+  min-height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.body .form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.body .form form div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.body .form form input,
+.body .form form textarea {
+  font: inherit;
+  padding: 5px 8px;
+  border: 1px solid black;
+  background-color: rgb(241, 241, 241);
+}
+
+.body .form form input {
+  border-radius: 100px;
+}
+
+.body .form form textarea {
+  border-radius: 8px;
+  resize: none;
+  height: 70px;
+}
+
+.body .form h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.body .form p {
+  text-align: center;
+  font-size: 24px;
+  font-style: italic;
+}
+
+.body .form .add,
+.body .form .submit {
+  border: 1px solid black;
+  color: white;
+  padding: 10px 20px;
+  width: fit-content;
+  align-self: center;
+  border-radius: 16px;
+}
+
+.body .form .add {
+  background-color: red;
+}
+
+.body .form .add:hover {
+  background-color: rgb(221, 0, 0);
+}
+
+.body .form .submit {
+  background-color: #00bf63;
+}
+
+.body .form .submit:hover {
+  background-color: #009c51;
+}
+
+.body .form .back img {
+  width: 30px;
+}
+
+.body .form .back {
+  width: fit-content;
+  background-color: inherit;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  left: -10px;
+  top: -10px;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.body .form .back:hover {
+  background-color: rgb(236, 236, 236);
+  text-decoration: underline;
+}
+
+.body .form ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.body .form .item {
+  background-image: linear-gradient(90deg, #f8ff00 0%, #3ad59f 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 6px 15px;
+  border-radius: 100px;
+}
+
+.body .form .item p {
+  font-style: initial;
+  font: inherit;
+  text-align: left;
+}
+
+.body .form .item img {
+  width: 30px;
+}
+
+.body .form .item img:hover {
+  width: 35px;
+}
+
+.body .form .item button {
+  background-color: transparent;
+  border: none;
+  margin-left: 5px;
+}
+
+.body .form .item h3 {
+  font-weight: 400;
+}

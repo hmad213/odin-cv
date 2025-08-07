@@ -5,12 +5,12 @@ import Sidebar from "./components/Sidebar";
 
 export default function App() {
   let [input, setInput] = useState({
-    name: "",
-    contact: "",
-    email: "",
-    address: "",
-    skills: ["Sewing", "Javascript", "Python"],
-    jobs: [],
+    name: "Muhammad Hammad",
+    contact: "123 456 7890",
+    email: "muhammadhammadpak50@gmail.com",
+    address: "123 avenue, ABC street",
+    skills: [],
+    works: [],
     education: [],
   });
   let [activeForm, setActiveForm] = useState("");

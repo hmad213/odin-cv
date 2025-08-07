@@ -3,8 +3,8 @@ import backImg from "../assets/back.svg";
 import editImg from "../assets/edit.svg";
 import deleteImg from "../assets/delete.svg";
 
-function EducationItem({
-  education,
+function WorkItem({
+  workDetails,
   index,
   input,
   setInput,
@@ -12,15 +12,15 @@ function EducationItem({
   setEditingIndex,
 }) {
   function onDelete() {
-    let temp = input.education.filter((education, i) => i !== index);
-    setInput({ ...input, education: temp });
+    let temp = input.works.filter((skill, i) => i !== index);
+    setInput({ ...input, works: temp });
   }
 
   return (
     <div className="item">
       <div>
-        <h3>{education.schoolName}</h3>
-        <p>{education.titleOfStudy}</p>
+        <h3>{workDetails.companyName}</h3>
+        <p>{workDetails.positionTitle}</p>
       </div>
       <div>
         <button
@@ -43,15 +43,15 @@ function RenderForm({ input, setInput, setMode, setEditingIndex }) {
   return (
     <div className="form">
       <div>
-        <h2>Education</h2>
-        {input.education.length === 0 ? (
-          <p>No education experience has been added</p>
+        <h2>Work</h2>
+        {input.works.length === 0 ? (
+          <p>No work experience has been added</p>
         ) : (
           <ul>
-            {input.education.map((entity, index) => {
+            {input.works.map((work, index) => {
               return (
-                <EducationItem
-                  education={entity}
+                <WorkItem
+                  workDetails={work}
                   index={index}
                   input={input}
                   setInput={setInput}
@@ -63,28 +63,31 @@ function RenderForm({ input, setInput, setMode, setEditingIndex }) {
           </ul>
         )}
         <button onClick={() => setMode("add")} className="add">
-          Add Education
+          Add Work
         </button>
       </div>
     </div>
   );
 }
 
-function RenderAddEducation({ input, setInput, setMode }) {
+function RenderAddWork({ input, setInput, setMode }) {
   function onSubmit(e) {
     let form = e.target;
-    let name = form.querySelector("#schoolName").value;
-    let title = form.querySelector("#titleOfStudy").value;
+    let name = form.querySelector("#companyName").value;
+    let title = form.querySelector("#positionTitle").value;
+    let responsibilities = form.querySelector("#responsibilities").value;
     let startDate = form.querySelector("#startDate").value;
     let endDate = form.querySelector("#endDate").value;
-    let temp = [...input.education];
+    let temp = [...input.works];
     temp.push({
-      schoolName: name,
-      titleOfStudy: title,
+      companyName: name,
+      positionTitle: title,
+      responsibilities: responsibilities,
       startDate: startDate,
       endDate: endDate,
     });
-    setInput({ ...input, education: temp });
+    setInput({ ...input, works: temp });
+    console.log(input.works);
     setMode("form");
   }
 
@@ -97,12 +100,25 @@ function RenderAddEducation({ input, setInput, setMode }) {
         </button>
         <form onSubmit={onSubmit}>
           <div>
-            <label htmlFor="schoolName">School Name:</label>
-            <input type="text" name="schoolName" id="schoolName" required />
+            <label htmlFor="companyName">Company Name:</label>
+            <input type="text" name="companyName" id="companyName" required />
           </div>
           <div>
-            <label htmlFor="titleOfStudy">Title:</label>
-            <input type="text" name="titleOfStudy" id="titleOfStudy" required />
+            <label htmlFor="positionTitle">Position Title:</label>
+            <input
+              type="text"
+              name="positionTitle"
+              id="positionTitle"
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="responsibilities">Responsibilities:</label>
+            <textarea
+              name="responsibilities"
+              id="responsibilities"
+              required
+            ></textarea>
           </div>
           <div>
             <label htmlFor="startDate">Start Date:</label>
@@ -120,25 +136,27 @@ function RenderAddEducation({ input, setInput, setMode }) {
   );
 }
 
-function RenderEditEducation({ input, setInput, setMode, editingIndex }) {
+function RenderEditWork({ input, setInput, setMode, editingIndex }) {
   function onSubmit(e) {
     let form = e.target;
-    let name = form.querySelector("#schoolName").value;
-    let title = form.querySelector("#titleOfStudy").value;
+    let name = form.querySelector("#companyName").value;
+    let title = form.querySelector("#positionTitle").value;
+    let responsibilities = form.querySelector("#responsibilities").value;
     let startDate = form.querySelector("#startDate").value;
     let endDate = form.querySelector("#endDate").value;
-    let temp = [...input.education];
+    let temp = [...input.works];
     temp[editingIndex] = {
-      schoolName: name,
-      titleOfStudy: title,
+      companyName: name,
+      positionTitle: title,
+      responsibilities: responsibilities,
       startDate: startDate,
       endDate: endDate,
     };
-    setInput({ ...input, education: temp });
+    setInput({ ...input, works: temp });
     setMode("form");
   }
 
-  let education = input.education[editingIndex];
+  let work = input.works[editingIndex];
 
   return (
     <div className="form">
@@ -149,24 +167,33 @@ function RenderEditEducation({ input, setInput, setMode, editingIndex }) {
         </button>
         <form onSubmit={onSubmit}>
           <div>
-            <label htmlFor="schoolName">School Name:</label>
+            <label htmlFor="companyName">Company Name:</label>
             <input
               type="text"
-              name="schoolName"
-              id="schoolName"
-              defaultValue={education.schoolName}
+              name="companyName"
+              id="companyName"
+              defaultValue={work.companyName}
               required
             />
           </div>
           <div>
-            <label htmlFor="titleOfStudy">Position Title:</label>
+            <label htmlFor="positionTitle">Position Title:</label>
             <input
               type="text"
-              name="titleOfStudy"
-              id="titleOfStudy"
-              defaultValue={education.titleOfStudy}
+              name="positionTitle"
+              id="positionTitle"
+              defaultValue={work.positionTitle}
               required
             />
+          </div>
+          <div>
+            <label htmlFor="responsibilities">Responsibilities:</label>
+            <textarea
+              name="responsibilities"
+              id="responsibilities"
+              defaultValue={work.responsibilities}
+              required
+            ></textarea>
           </div>
           <div>
             <label htmlFor="startDate">Start Date:</label>
@@ -174,7 +201,7 @@ function RenderEditEducation({ input, setInput, setMode, editingIndex }) {
               type="date"
               name="startDate"
               id="startDate"
-              defaultValue={education.startDate}
+              defaultValue={work.startDate}
               required
             />
           </div>
@@ -184,7 +211,7 @@ function RenderEditEducation({ input, setInput, setMode, editingIndex }) {
               type="date"
               name="endDate"
               id="endDate"
-              defaultValue={education.endDate}
+              defaultValue={work.endDate}
               required
             />
           </div>
@@ -196,7 +223,7 @@ function RenderEditEducation({ input, setInput, setMode, editingIndex }) {
   );
 }
 
-export default function EducationForm({ input, setInput }) {
+export default function WorkForm({ input, setInput }) {
   let [mode, setMode] = useState("form");
   let [editingIndex, setEditingIndex] = useState(null);
 
@@ -211,11 +238,11 @@ export default function EducationForm({ input, setInput }) {
     );
   } else if (mode == "add") {
     return (
-      <RenderAddEducation input={input} setInput={setInput} setMode={setMode} />
+      <RenderAddWork input={input} setInput={setInput} setMode={setMode} />
     );
   } else if (mode == "edit") {
     return (
-      <RenderEditEducation
+      <RenderEditWork
         editingIndex={editingIndex}
         input={input}
         setMode={setMode}
