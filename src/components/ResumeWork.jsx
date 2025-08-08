@@ -8,11 +8,11 @@ export default function ResumeWork({ works }) {
     <div className="work">
       <h2>Work Experience</h2>
       <ul>
-        {works.map((work) => {
+        {works.map((work, index) => {
           const formattedStart = format(parseISO(work.startDate), "MMM yyyy");
           const formattedEnd = format(parseISO(work.endDate), "MMM yyyy");
           return (
-            <li>
+            <li key={index}>
               <div>
                 <h3>{work.companyName}</h3>
                 <h4>{work.positionTitle}</h4>
