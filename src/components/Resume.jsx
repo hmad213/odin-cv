@@ -6,7 +6,7 @@ import Education from "./ResumeEducation";
 
 export default function Resume({ input }) {
   return (
-    <div>
+    <div className="resume">
       <General
         name={input.name}
         email={input.email}

@@ -1,8 +1,10 @@
 .body .form {
-  max-width: 350px;
+  width: 350px;
   height: 100vh;
   align-content: center;
   background-color: inherit;
+  position: fixed;
+  top: 0;
 }
 
 .body .form > div {

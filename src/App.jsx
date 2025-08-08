@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Resume from "./components/Resume";
-import Form from "./components/form";
+import Form from "./components/Form";
 import Sidebar from "./components/Sidebar";
+import Header from "./components/Header";
 
 export default function App() {
   let [input, setInput] = useState({
@@ -16,10 +17,16 @@ export default function App() {
   let [activeForm, setActiveForm] = useState("");
 
   return (
-    <div className="body">
-      <Sidebar activeForm={activeForm} setActiveForm={setActiveForm}></Sidebar>
-      <Form input={input} setInput={setInput} activeForm={activeForm} />
-      <Resume input={input} />
-    </div>
+    <>
+      <Header />
+      <div className="body">
+        <Sidebar
+          activeForm={activeForm}
+          setActiveForm={setActiveForm}
+        ></Sidebar>
+        <Form input={input} setInput={setInput} activeForm={activeForm} />
+        <Resume input={input} />
+      </div>
+    </>
   );
 }

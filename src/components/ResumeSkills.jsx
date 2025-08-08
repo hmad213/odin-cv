@@ -3,7 +3,7 @@ export default function ResumeSkills({ skills }) {
     return <></>;
   }
   return (
-    <div>
+    <div className="skills">
       <h2>Skills</h2>
       <ul>
         {skills.map((skill) => (

@@ -3,8 +3,8 @@ export default function ResumeWork({ works }) {
     return <></>;
   }
   return (
-    <div>
-      <h2>Works</h2>
+    <div className="work">
+      <h2>Work Experience</h2>
       <ul>
         {works.map((work) => {
           return (

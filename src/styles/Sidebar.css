@@ -9,6 +9,7 @@
   top: 0;
   left: 0;
   border-radius: 0;
+  z-index: 0;
 }
 
 .sidebar button {
@@ -38,4 +39,10 @@
 
 .sidebar img {
   height: 40px;
+  filter: invert(84%) sepia(99%) saturate(0%) hue-rotate(13deg) brightness(108%)
+    contrast(100%);
+}
+
+.sidebar .selectedForm img {
+  filter: none;
 }

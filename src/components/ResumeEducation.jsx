@@ -3,7 +3,7 @@ export default function ResumeEducation({ education }) {
     return <></>;
   }
   return (
-    <div>
+    <div className="education">
       <h2>Education</h2>
       <ul>
         {education.map((school) => {
