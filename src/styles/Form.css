@@ -4,6 +4,7 @@
   align-content: center;
   background-color: inherit;
   position: fixed;
+  z-index: 1;
   top: 0;
 }
 
@@ -135,7 +136,8 @@
 }
 
 .body .form .item img:hover {
-  width: 35px;
+  filter: invert(36%) sepia(0%) saturate(1924%) hue-rotate(251deg)
+    brightness(90%) contrast(95%);
 }
 
 .body .form .item button {

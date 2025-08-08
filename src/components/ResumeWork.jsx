@@ -1,3 +1,5 @@
+import { format, parseISO } from "date-fns";
+
 export default function ResumeWork({ works }) {
   if (works.length === 0) {
     return <></>;
@@ -7,14 +9,18 @@ export default function ResumeWork({ works }) {
       <h2>Work Experience</h2>
       <ul>
         {works.map((work) => {
+          const formattedStart = format(parseISO(work.startDate), "MMM yyyy");
+          const formattedEnd = format(parseISO(work.endDate), "MMM yyyy");
           return (
             <li>
-              <h3>{work.companyName}</h3>
-              <h4>{work.positionTitle}</h4>
+              <div>
+                <h3>{work.companyName}</h3>
+                <h4>{work.positionTitle}</h4>
+                <p>
+                  {formattedStart} --- {formattedEnd}
+                </p>
+              </div>
               <p>{work.responsibilities}</p>
-              <p>
-                From {work.startDate} to {work.endDate}
-              </p>
             </li>
           );
         })}

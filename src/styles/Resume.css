@@ -1,8 +1,109 @@
 .body .resume {
   margin-left: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow: hidden;
 }
 
 .body .resume .general {
   background-color: #00bf63;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.body .resume .general .profile {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.body .resume .general .profile > div {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.body .resume .general .profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.body .resume .general .details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.body .resume .general .details div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.body .resume .general .details img {
+  height: 30px;
+  filter: invert(84%) sepia(99%) saturate(0%) hue-rotate(13deg) brightness(108%)
+    contrast(100%);
+}
+
+.body .resume h2 {
+  font-size: 32px;
+}
+
+.body .resume .skills ul {
+  padding: 10px 20px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.body .resume .skills,
+.body .resume .work,
+.body .resume .education {
+  margin-top: 40px;
+}
+
+.body .resume > div {
+  padding: 0px 40px;
+}
+
+.body .resume .work ul {
+  list-style-type: none;
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.body .resume .work li {
+  padding: 10px 20px;
+  display: flex;
+  border: 2px dotted black;
+  border-radius: 40px;
+}
+
+.body .resume .work li div {
+  border-right: 1px solid black;
+  padding: 5px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.body .resume .work li > p {
+  padding: 5px 10px;
+}
+
+.body .resume .work li h3 {
+  font-weight: 600;
+}
+
+.body .resume .education ul {
 }
