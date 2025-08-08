@@ -15,7 +15,7 @@ export default function App() {
       {
         companyName: "ABC Coorporation",
         positionTitle: "Software Engineer",
-        resbonsibilities:
+        responsibilities:
           "designs, develops, tests, and maintains software systems to solve problems and meet user needs efficiently and reliably.",
         startDate: "2025-09-08",
         endDate: "2025-10-09",
@@ -23,7 +23,7 @@ export default function App() {
       {
         companyName: "Hammad Limited",
         positionTitle: "Owner",
-        resbonsibilities:
+        responsibilities:
           "Incharge of the coorporation and manages all internal affairs.",
         startDate: "2025-08-08",
         endDate: "2025-08-09",
